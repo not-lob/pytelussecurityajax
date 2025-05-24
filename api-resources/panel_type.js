@@ -1,4 +1,4 @@
-// https://www.alarm.com/web/system/assets/customer-ember/enums/PanelType.js
+// https://smarthome-security.telus.com/web/system/assets/customer-ember/enums/PanelType.js
 
 NotSet = 0
 Concord = 1

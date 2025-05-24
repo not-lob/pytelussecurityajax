@@ -1,4 +1,4 @@
-// https://www.alarm.com/web/system/assets/customer-ember/enums/ManagedDeviceType.js
+// https://smarthome-security.telus.com/web/system/assets/customer-ember/enums/ManagedDeviceType.js
 
 AudioDevice = 0
 CarMonitor = 1

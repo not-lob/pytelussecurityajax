@@ -1,4 +1,4 @@
-// https://www.alarm.com/web/system/assets/@adc/ajax/enums/AjaxResponseHttpCode.ts
+// https://smarthome-security.telus.com/web/system/assets/@adc/ajax/enums/AjaxResponseHttpCode.ts
 
 export const NotLoggedIn = 401;
 

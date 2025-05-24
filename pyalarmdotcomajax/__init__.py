@@ -572,7 +572,7 @@ class AlarmBridge:
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                     "(KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
                 ),
-                "Referrer": "https://www.alarm.com/web/system/home",
+                "Referrer": "https://smarthome-security.telus.com/web/system/home",
                 "Connection": "keep-alive",
             }
         )
@@ -619,7 +619,7 @@ class AlarmBridge:
 
             # AFG cookie is not always used. This seems to depend on the specific Alarm.com vendor, so a missing
             # AFG key should not cause a failure.
-            # Ref: https://www.alarm.com/web/system/assets/addon-tree-output/@adc/ajax/services/adc-ajax.js
+            # Ref: https://smarthome-security.telus.com/web/system/assets/addon-tree-output/@adc/ajax/services/adc-ajax.js
             # When used, AFG is not always present in the response. Prior value should carry over until a new value
             # appears.
 

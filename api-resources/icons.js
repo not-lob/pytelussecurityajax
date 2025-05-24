@@ -1,4 +1,4 @@
-// https://www.alarm.com/web/system/assets/customer-ember/enums/Icon.js
+// https://smarthome-security.telus.com/web/system/assets/customer-ember/enums/Icon.js
 Unknown = 0
 GenericEvent = 1
 Panel = 2

@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
-const TARGET_URL = 'https://www.alarm.com/web/system/home';
+const TARGET_URL = 'https://smarthome-security.telus.com/web/system/home';
 const OUTPUT_DIR = path.resolve(__dirname, 'ember_modules_dump');
 
 function resetOutputDir() {
@@ -51,12 +51,12 @@ async function main() {
               constructorModuleMap.set(cls, modName);
               const attrs = new Set();
               const rels = new Set();
-              try { cls.eachAttribute(n => attrs.add(n)); } catch {}
-              try { cls.eachRelationship(n => rels.add(n)); } catch {}
+              try { cls.eachAttribute(n => attrs.add(n)); } catch { }
+              try { cls.eachRelationship(n => rels.add(n)); } catch { }
               attributeMap.set(modName, attrs);
               relationshipMap.set(modName, rels);
             }
-          } catch {}
+          } catch { }
         }
 
         function extractEmberModel(modelClass) {
@@ -81,7 +81,7 @@ async function main() {
                 }
               }
             });
-          } catch {}
+          } catch { }
 
           try {
             modelClass.eachRelationship((name, meta) => {
@@ -93,7 +93,7 @@ async function main() {
                 }
               }
             });
-          } catch {}
+          } catch { }
 
           try {
             const proto = modelClass.prototype;
@@ -104,7 +104,7 @@ async function main() {
                 schema.methods.push({ name: fnName, raw: fn.toString() });
               }
             });
-          } catch {}
+          } catch { }
 
           return schema;
         }
@@ -160,7 +160,7 @@ async function main() {
         const inheritanceBlock = tree.join('\n');
 
         const groupedAttrs = {};
-        Object.entries(attributes).forEach(([k,v]) => {
+        Object.entries(attributes).forEach(([k, v]) => {
           groupedAttrs[v.definedOn] = groupedAttrs[v.definedOn] || {};
           groupedAttrs[v.definedOn][k] = v;
         });
@@ -169,8 +169,8 @@ async function main() {
           const grp = groupedAttrs[modName];
           if (grp) {
             attrsCode += `  // ${modName}\n`;
-            Object.entries(grp).forEach(([attr,meta]) => {
-              const metaStr = JSON.stringify(meta, null, 2).split('\n').map((l,i)=>i? '    '+l : l).join('\n');
+            Object.entries(grp).forEach(([attr, meta]) => {
+              const metaStr = JSON.stringify(meta, null, 2).split('\n').map((l, i) => i ? '    ' + l : l).join('\n');
               attrsCode += `  ${attr}: ${metaStr},\n`;
             });
           }
@@ -178,7 +178,7 @@ async function main() {
         attrsCode += '};\n';
 
         const groupedRels = {};
-        Object.entries(relationships).forEach(([k,v]) => {
+        Object.entries(relationships).forEach(([k, v]) => {
           groupedRels[v.definedOn] = groupedRels[v.definedOn] || {};
           groupedRels[v.definedOn][k] = v;
         });
@@ -187,15 +187,15 @@ async function main() {
           const grp = groupedRels[modName];
           if (grp) {
             relsCode += `  // ${modName}\n`;
-            Object.entries(grp).forEach(([rel,meta]) => {
-              const metaStr = JSON.stringify(meta, null, 2).split('\n').map((l,i)=>i? '    '+l : l).join('\n');
+            Object.entries(grp).forEach(([rel, meta]) => {
+              const metaStr = JSON.stringify(meta, null, 2).split('\n').map((l, i) => i ? '    ' + l : l).join('\n');
               relsCode += `  ${rel}: ${metaStr},\n`;
             });
           }
         });
         relsCode += '};\n';
 
-        const methodsStr = methods.map(m=>`// Method: ${m.name}\n${m.raw}`).join('\n\n');
+        const methodsStr = methods.map(m => `// Method: ${m.name}\n${m.raw}`).join('\n\n');
 
         fileContent =
           `// Module: ${name}\n` +
@@ -206,7 +206,7 @@ async function main() {
           `${relsCode}\n` +
           `// ————— Methods —————\n` +
           `${methodsStr}\n`;
-      } else if (content.type === 'function'||content.type==='class') {
+      } else if (content.type === 'function' || content.type === 'class') {
         fileContent = `// Module: ${name}\n${content.source}\n`;
       } else {
         fileContent = `// Module: ${name}\nexport default ${content.source};\n`;

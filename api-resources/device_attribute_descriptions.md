@@ -1,5 +1,5 @@
-https://www.alarm.com/web/system/assets/customer-site/models/devices/base-device.js
-https://www.alarm.com/web/system/assets/customer-site/models/devices/sensor.js
+https://smarthome-security.telus.com/web/system/assets/customer-site/models/devices/base-device.js
+https://smarthome-security.telus.com/web/system/assets/customer-site/models/devices/sensor.js
 
 | Device Type         | Property Name                              | Description                                                                                                                                                                                                                                                         |
 | ------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

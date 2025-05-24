@@ -1,6 +1,6 @@
 // TROUBLE CONDITIONS
 
-// https://www.alarm.com/web/system/assets/customer-ember/enums/TroubleConditionType.js
+// https://smarthome-security.telus.com/web/system/assets/customer-ember/enums/TroubleConditionType.js
 
 ACFailure = 14
 AlarmInMemory = 53

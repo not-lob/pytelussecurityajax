@@ -8,7 +8,7 @@ The scripts in this folder are quick-and-dirty LLM-generated tools for extractin
 
 ### scrape-ember.js
 
-Dumps all JavaScript modules loaded by the Ember application at ```https://www.alarm.com/web/system/home``` in a readable format, preserving their original module paths. Each dumped file includes structured metadata such as model attributes, relationships, class inheritance, and method definitions. The result is a static, analyzable snapshot of the app's internal module system
+Dumps all JavaScript modules loaded by the Ember application at ```https://smarthome-security.telus.com/web/system/home``` in a readable format, preserving their original module paths. Each dumped file includes structured metadata such as model attributes, relationships, class inheritance, and method definitions. The result is a static, analyzable snapshot of the app's internal module system
 
 ### convert-to-python.js
 
@@ -26,7 +26,7 @@ Generates Python dataclasses from the Ember.js models extracted by ```scrape-emb
     & 'C:\Program Files\Google\Chrome\Application\chrome.exe' --remote-debugging-port=9222 --user-data-dir="%USERPROFILE%\chrome-devtools-profile"
     ```
     This opens an instance of Chrome that can be controlled by a NodeJS script.
-2. In that Chrome instance, log into Alarm.com and get to your dashboard. Ensure that your browser's URL bar shows ```https://www.alarm.com/web/system/home```. _Subsequent steps must be completed before your session expires._
+2. In that Chrome instance, log into Alarm.com and get to your dashboard. Ensure that your browser's URL bar shows ```https://smarthome-security.telus.com/web/system/home```. _Subsequent steps must be completed before your session expires._
 3. Open a command prompt in the same directory as these scripts.
 4. Run the scrape-ember.js script first: ```node scrape-ember.js.```
 5. After that script has completed, run convert-to-python.js: ```node convert-to-python.js```
